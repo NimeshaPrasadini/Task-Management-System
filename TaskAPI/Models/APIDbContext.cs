@@ -4,10 +4,10 @@ namespace TaskAPI.Models
 {
     public class APIDbContext : DbContext
     {
-        public APIDbContext(DbContextOptions options) : base(options)
+        public APIDbContext(DbContextOptions<APIDbContext> options) : base(options)
         {
         }
 
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<Task> Tasks { get; set; } 
     }
 }

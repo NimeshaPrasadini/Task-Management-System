@@ -1,13 +1,356 @@
-body {
+/* code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}  */
+
+/* Header Styles */
+.header {
+  padding: 10px;
+  margin: 0 -5px;
+  text-align: center;
+  background: rgb(16, 122, 67);
+  color: white;
+  font-size: 16px;
+}
+
+.header h1 {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-size: 30px;
+  color: #fff;
+}
+
+/* Body Styles */
+body {
+  margin: 0 5px;
+  padding: 0;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.row {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.content-center {
+  align-content: center;
+}
+
+.justify-btw {
+  justify-content: space-between;
+}
+
+/* Buttons Styles */
+.add-btn {
+  position: fixed;
+  top: 118px;
+  right: 80px;
+}
+
+.btn {
+  width: 50px;
+  background: rgb(219, 214, 214);
+  box-shadow: 0 0 1px 2px rgba(218, 215, 215);
+  border-radius: 3px;
+  cursor: pointer;
+  text-align: center;
+  color: #000;
+}
+
+.btn.add {
+  background: rgb(16, 122, 67);
+  font-size: 30px;
+  font-weight: bold;
+  padding: 6px 12px;
+  color: #fff;
+  font-family: Tahoma;
+}
+
+.add-btn.txt {
+  color: #000;
+  margin-right: 100px;
+  margin-top: 14px;
+  font-size: 18px;
+  border-style: solid; 
+  border: 0;
+}
+
+.btn-clearFilters {
+  width: 100px;
+  padding: 8px 8px;
+  margin-top: 15px;
+  border-radius: 3px;
+  background: green;
+  color:#fff;
+  border-style: solid; 
+  border: 0;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.spacer-20 {
+  padding-top: 80px;
+}
+
+/* Filters Styles */
+.filter {
+  border-bottom: 1px #ccc solid;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.filter-items div {
+  margin-right: 20px;
+}
+
+.filter-items input,
+.filter-items select {
+  margin-left: 0;
+  margin-top: 5px;
+}
+
+.filter-items .btn {
+  height: 20px;
+  width: 60px;
+}
+
+.column {
+  padding: 3px 6px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.column.id {
+  width: 20px;
+}
+
+.column.title {
+  width: 17%;
+}
+
+.column.description {
+  width: 35%;
+}
+
+.column.levelOfPriority {
+  width: 10%;
+}
+
+.column.status {
+  width: 10%;
+}
+
+.column.dueDate {
+  width: 110px;
+}
+
+.column.edit {
+  width: 50px;
+}
+
+.column.delete {
+  width: 50px;
+  color: red;
+}
+
+.underline {
+  border-bottom: 2px solid rgb(203, 197, 197);
+}
+
+.hdr {
+  font-weight: bold;
+
+}
+
+.me-15 {
+  margin-right: 15px;
+}
+
+.me-10 {
+  margin-right: 10px;
+}
+
+.ms-10 {
+  margin-left: 10px;
+}
+
+.ms-30 {
+  margin-left: 30px;
+}
+
+.mt-15 {
+  margin-top: 15px;
+}
+
+.mt-25 {
+  margin-top: 25px;
+}
+
+.mt-5 {
+  margin-top: 5px;
+}
+
+.py-5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.bc-red {
+  background-color: red;
+  background: red;
+}
+
+.bc-green {
+  background-color: #3CB371;
+  background: #3CB371;
+}
+
+.bc-paleGreen {
+  background-color: #98FB98;
+  background: #98FB98;
+}
+
+.bc-lightblue {
+  background-color: #B0E0E6;
+  background: #B0E0E6;
+}
+
+.bc-orange {
+  background-color: #FFA500;
+  background: #FFA500;
+}
+
+.bc-gold {
+  background-color: gold;
+  background: gold;
+}
+
+.not-allowed {
+  cursor: not-allowed;
+}
+
+.waiting {
+  cursor: wait;
+}
+
+.no-event {
+  pointer-events: none;
+}
+
+.float-right {
+  float: right;
+}
+
+input,
+select {
+    margin-left: 10px;
+    border: none;
+    outline: 1px rgb(50,205,50) solid;
+    padding: 2px 4px;
+}
+
+input:focus,
+select:focus {
+    outline: 1px solid gold;
+}
+
+input[name="title"] {
+    width: 80%;
+    margin-left: 0;
+}
+
+label {
+  font-weight: bold;
+}
+
+textarea {
+  resize: vertical;
+  border: none;
+  outline: 1px rgb(50,205,50) solid;
+  padding: 5px;
+}
+
+textarea:focus {
+  outline: 1px solid gold;
+}
+
+input[type="checkbox"] {
+  height: 20px;
+  width: 40px;
+  outline: none;
+  border: 1px solid gold;
+}
+
+.model {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background: rgba(0, 0, 0, 0.385);
+  width: 100%;
+  height: 100%;
+}
+
+.model-container {
+  background: #fff;
+  border-radius: 9px;
+  padding: 8px;
+  min-width: 520px;
+  max-width: 85vw;
+}
+
+.model-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.model-action-container {
+  padding: 10px 20px;
+}
+
+.notifications {
+  font-weight: bold;
+  animation-name: notification;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: normal;
+}
+
+.loading {
+  width: 0px;
+  font-weight: bold;
+  animation-name: loading;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes notification {
+  0% {color: gold;}
+  50% {color: red;}
+  100% {color: green;}
+}
+
+@keyframes loading {
+  0% {width: 0px;}
+  50% {width: 4px;}
+  100% {width: 15px;}
 }

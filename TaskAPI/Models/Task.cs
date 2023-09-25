@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace TaskAPI.Models
 {
@@ -8,16 +8,25 @@ namespace TaskAPI.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        [Column(TypeName = "nvarchar(250)")]
-        public string Title { get; set; }
+        [Required (ErrorMessage = "Task Title is required field.")]
+        [MaxLength(150), Column(TypeName = "nvarchar(150)")]
+        public string Title { get; set; } = "Title";
 
-        public string Description { get; set; }
+        [MaxLength(400), Column(TypeName = "nvarchar(400)")]
+        public string Description { get; set; } = "Description";
 
-        public string Status { get; set; }
-        
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
 
-        public DateTime UpdatedAt { get; set;}
+        public DateTime UpdatedDate { get; set; } = DateTime.Now;
+
+        public DateTime DueDate { get; set; } = DateTime.Now;
+
+        public bool Done { get; set; } = false;
+
+        public bool Deleted { get; set; } = false;
+
+        public byte LevelOfPriority { get; set; } = 2;
+
+        public string Status { get; set; } = "Status";
     }
 }
