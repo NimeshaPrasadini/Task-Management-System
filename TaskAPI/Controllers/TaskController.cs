@@ -92,7 +92,6 @@ namespace TaskAPI.Controllers
         }
 
         // PUT: api/task/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTask(int id, Task task)
         {
@@ -154,7 +153,6 @@ namespace TaskAPI.Controllers
         }
 
         // POST: api/task
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Task>> PostTask(Task task)
         {
@@ -167,7 +165,7 @@ namespace TaskAPI.Controllers
           {
                 _context.Tasks.Add(task);
                 await _context.SaveChangesAsync();
-            }
+          }
           catch (DbUpdateConcurrencyException e)
           {
                 return BadRequest("Could not create the new Task: " + e.Message);

@@ -24,7 +24,6 @@ export const filter = {
     SpecifiedDate: null,
     StartDate: null,
     EndDate: null,
-    //DueDate: null
 };
 
 export const activeId = {
@@ -33,6 +32,7 @@ export const activeId = {
 
 const url = "api/task";
 
+// get default task list
 export async function getDefault(){
     const res = await fetch(url);
 
@@ -46,6 +46,7 @@ export async function getDefault(){
     return result;
 }
 
+// notifications
 export function notifyUser(msg){
     const notificationEl = document.querySelector(".notifications");
     notificationEl.innerHTML = msg ? msg : "";
@@ -55,6 +56,7 @@ export function notifyUser(msg){
         }, 12000);
 }
 
+// open the model
 export function openModel(model){
     const model_ = document.querySelector("."+model);
     if(model_){
@@ -62,6 +64,7 @@ export function openModel(model){
     }
 }
 
+// close the model
 export function closeModel(model){
     const model_ = document.querySelector("."+model);
     if(model_){
@@ -69,6 +72,7 @@ export function closeModel(model){
     }
 }
 
+// format date to string
 export function formatDateToString(d){
     const nd = d ? new Date(d) : new Date()
     const month_ = nd.getMonth() + 1;
@@ -77,6 +81,7 @@ export function formatDateToString(d){
     return nd.getFullYear() + "-" + monthStr + "-" + day_;
 }
 
+// get task data to filter
 export async function getTasks(filter_){
     const res = await fetch(url + "/filters",{
         method: "POST",
@@ -95,6 +100,7 @@ export async function getTasks(filter_){
     return await res.json();
 }
 
+// create tasks
 export async function createTask(newTask){
     const res = await fetch(url,{
         method: "POST",
@@ -113,6 +119,7 @@ export async function createTask(newTask){
     return await res.json();
 }
 
+// update tasks
 export async function updateTask(updateTask){
     const res = await fetch(url + "/" + updateTask.id,{
         method: "PUT",
@@ -131,6 +138,7 @@ export async function updateTask(updateTask){
     return res;
 }
 
+// delete tasks
 export async function deleteTask(id){
     const res = await fetch(url + "/" + id, {
         method: "DELETE"

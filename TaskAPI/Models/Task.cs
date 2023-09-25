@@ -8,7 +8,7 @@ namespace TaskAPI.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required (ErrorMessage = "Task Title is required field.")]
         [MaxLength(150), Column(TypeName = "nvarchar(150)")]
         public string Title { get; set; } = "Title";
 
@@ -27,6 +27,6 @@ namespace TaskAPI.Models
 
         public byte LevelOfPriority { get; set; } = 2;
 
-        public string Status { get; set; }
+        public string Status { get; set; } = "Status";
     }
 }

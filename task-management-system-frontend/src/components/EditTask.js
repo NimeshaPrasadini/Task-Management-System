@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { closeModel, entry, updateTask } from "./Library";
 
+// Edit Task
 export function Edit(props) {
 
     const [done_, setDone_] = useState(false);
@@ -83,7 +84,7 @@ export function Edit(props) {
                 </div>
                 <div className="ms-10">
                     <label htmlFor="Status_e">Status</label>
-                    <select name="status" id="Status_e" defaultValue={data.status} value={data.status} onChange={editTask}>
+                    <select name="status" id="Status_e" defaultValue={data.status} onChange={editTask}>
                         <option value="" disabled>Status</option>
                         <option value="Not Started" >Not Started</option>
                         <option value="In Progress" >In Progress</option>

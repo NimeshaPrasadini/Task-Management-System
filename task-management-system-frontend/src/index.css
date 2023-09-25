@@ -3,6 +3,7 @@
     monospace;
 }  */
 
+/* Header Styles */
 .header {
   padding: 10px;
   margin: 0 -5px;
@@ -18,6 +19,7 @@
   color: #fff;
 }
 
+/* Body Styles */
 body {
   margin: 0 5px;
   padding: 0;
@@ -44,6 +46,7 @@ body {
   justify-content: space-between;
 }
 
+/* Buttons Styles */
 .add-btn {
   position: fixed;
   top: 118px;
@@ -64,8 +67,7 @@ body {
   background: rgb(16, 122, 67);
   font-size: 30px;
   font-weight: bold;
-  box-shadow: 0 0 2px 2px rgba(39, 153, 39);
-  padding: 5px 13px;
+  padding: 6px 12px;
   color: #fff;
   font-family: Tahoma;
 }
@@ -73,16 +75,31 @@ body {
 .add-btn.txt {
   color: #000;
   margin-right: 100px;
-  margin-top: 12px;
+  margin-top: 14px;
   font-size: 18px;
   border-style: solid; 
   border: 0;
+}
+
+.btn-clearFilters {
+  width: 100px;
+  padding: 8px 8px;
+  margin-top: 15px;
+  border-radius: 3px;
+  background: green;
+  color:#fff;
+  border-style: solid; 
+  border: 0;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 .spacer-20 {
   padding-top: 80px;
 }
 
+/* Filters Styles */
 .filter {
   border-bottom: 1px #ccc solid;
   margin-bottom: 20px;
@@ -191,8 +208,23 @@ body {
 }
 
 .bc-green {
-  background-color: green;
-  background: green;
+  background-color: #3CB371;
+  background: #3CB371;
+}
+
+.bc-paleGreen {
+  background-color: #98FB98;
+  background: #98FB98;
+}
+
+.bc-lightblue {
+  background-color: #B0E0E6;
+  background: #B0E0E6;
+}
+
+.bc-orange {
+  background-color: #FFA500;
+  background: #FFA500;
 }
 
 .bc-gold {

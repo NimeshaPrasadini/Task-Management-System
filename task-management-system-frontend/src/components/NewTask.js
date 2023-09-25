@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { closeModel, entry, formatDateToString, createTask } from "./Library";
 
+// New Task
 export function New(props) {
 
     const [titleLength, setTitleLength] = useState(0);
@@ -71,9 +72,8 @@ export function New(props) {
                 </div>
                 <div className="ms-10">
                     <label htmlFor="Status_n">Status</label>
-                    <select name="status" id="Status_n" onChange={newTask} defaultValue={""}>
+                    <select name="status" id="Status_n" onChange={newTask} defaultValue={"Not Started"}>
                         <option value="" disabled>Status</option>
-                        <option value="Default" >Default</option>
                         <option value="Not Started" >Not Started</option>
                         <option value="In Progress" >In Progress</option>
                         <option value="Completed" >Completed</option>

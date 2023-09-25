@@ -12,6 +12,7 @@ function App() {
     const [refreshData, setRefreshData] = useState(0);
     const [stateListener, setStateListener] = useState(0);
 
+    // filter tasks
     const filterTask = (e) => {
         let name_ = e.target.name;
         let v_ = e.target.value;
@@ -27,7 +28,7 @@ function App() {
           const dayNum = sd_.getDay();
     
           if (v_ === "1") {
-            sd_.setDate(dayNum - 1)
+            sd_.setDate(dayNum - 1);
           }
     
           if (v_ === "2") {
@@ -53,24 +54,24 @@ function App() {
     
         if (name_ === "SpecifiedDate") {
           filter.SpecifiedDate = new Date(v_);
-          filter.StartDate = null
-          filter.EndDate = null
+          filter.StartDate = null;
+          filter.EndDate = null;
         }
     
         if (name_ === "LevelOfPriority") {
-          filter.LevelOfPriority = Number(v_) === 9 ? null : Number(v_);
+          filter.LevelOfPriority = Number(v_) === 6 ? null : Number(v_);
         }
 
-        // if (name_ === "Status") {
-        //     filter.Status = v_;
-        // }
+        if (name_ === "Status") {
+            filter.Status = String(v_) === 'reset' ? null : String(v_);
+        }
 
         console.log("Filtered Object: ", filter);
     
         // fetch data with filter
         getTasks(filter).then(r => {
           if (r.length < 1) {
-            notifyUser("Filter result is empty!");
+            notifyUser("Filter Result is Empty!");
           }
           setDataList(r);
         }).catch(e => console.log("Error in getting data on filter: ", e));
@@ -96,9 +97,9 @@ function App() {
             <div className="notifications spacer-20"></div>
 
             <section className="row justify-btw items-center filter">
-                <div className="model-title">Filters</div>
+                <div className="model-title ms-10">Filters</div>
                 <div className="row items-center filter-items">
-                    <button className="me-15" onClick={()=> window.location.reload()} >Clear Filters</button>
+                    <button className="me-15 btn-clearFilters" onClick={()=> window.location.reload()} >Clear Filters</button>
                     <div>
                         <label htmlFor="All_f">All</label> <br />
                         <input type="checkbox" id="All_f" name="All" onChange={filterTask} />
@@ -112,7 +113,7 @@ function App() {
                         <input type="checkbox" id="Deleted_f" name="Deleted" onChange={filterTask} />
                     </div>
                     <div>
-                        <label htmlFor="period">Period</label> <br/>
+                        <label htmlFor="period">Time Period</label> <br/>
                         <select name="period" id="period" defaultValue={"4"} onChange={filterTask}>
                             <option value="5" disabled>Period</option>
                             <option value="4" >Default</option>
@@ -123,7 +124,7 @@ function App() {
                     </div>
                     <div>
                         <label htmlFor="DueDate">Due Date</label> <br />
-                        <input type="date" id="DueDate" name="DueDate" onChange={filterTask} />
+                        <input type="date" id="DueDate" name="SpecifiedDate" onChange={filterTask} />
                     </div>
                     <div>
                         <label htmlFor="LevelOfPriority_f">Level Of Priority</label> <br/>
@@ -142,6 +143,7 @@ function App() {
                         <label htmlFor="Status_f">Status</label> <br/>
                         <select name="Status" id="Status_f" defaultValue={""} onChange={filterTask}>
                             <option value="" disabled>Status</option>
+                            <option value="reset">Reset</option>
                             <option value="Not Started" >Not Started</option>
                             <option value="In Progress" >In Progress</option>
                             <option value="Completed" >Completed</option>

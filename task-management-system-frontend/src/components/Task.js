@@ -27,7 +27,8 @@ export function Task(props) {
             <div className="column description">{props.item.description}</div>
             <div className={`column levelOfPriority ${props.item.levelOfPriority === 0 ? ' bc-green' : 
             props.item.levelOfPriority === 4 ? ' bc-gold' : props.item.levelOfPriority === 5 ? ' bc-red' : ''}`}>{LevelOfPriority[props.item.levelOfPriority]}</div>
-            <div className="column status">{props.item.status}</div>
+            <div className={`column status ${props.item.status === "Not Started" ? ' bc-lightblue' : 
+            props.item.status === "In Progress" ? 'bc-orange' : props.item.status === "Completed" ? ' bc-paleGreen' : ''}`}>{props.item.status}</div>
             <div className="column dueDate">{props.item.dueDate.split("T")[0]}</div>
             <div className="column edit">
                 <div className="btn edit" onClick={()=> handlingEdit(props.item)}>Edit</div>
