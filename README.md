@@ -2,6 +2,16 @@
 Task Management System using React JS and .NET Core Web API
 
 
+Instructions to set up and run the application:
+1. Set up the correct connection string inside the 'appsettings.json' of the backend 'TaskAPI'.
+2. Install necessary dependencies on the NuGet package manager.
+3. Run the 'TaskAPI' backend application.
+4. For the frontend 'task-management-system-frontend', install the necessary dependencies. (run the "npm install" command on the terminal)
+5. Run the frontend application using the "npm start" command.   
+   Local:            https://localhost:44456   
+   On Your Network:  https://192.168.1.2:44456
+   
+
 Screenshots of user interfaces in Task Management System web application.
 
 1. Home(Dashboard)
